@@ -52,12 +52,12 @@ $validationData = $validator->check($_POST,array(
 
         $user=new User();
 
-        $salt=Hash::salt(10);
+        $salt=Hash::salt();
             
         $user->create([
             'username'=>Input::get('username'),
             'password'=>Hash::make(Input::get('password'),$salt),
-            'name'=>input::get('name'),
+            'name'=>Input::get('name'),
             'salt'=>$salt,
             'join_at'=>date('Y-m-d H:i:s'),
             'grp'=>1

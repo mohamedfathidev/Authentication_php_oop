@@ -89,6 +89,8 @@ class DB {
     }
   
     public function insert($table,$fields=[]){
+
+        
         if(count($fields)){
 
             $keys=array_keys($fields);
@@ -107,7 +109,8 @@ class DB {
 
             $sql="INSERT INTO {$table}(`".implode('`,`',$keys)."`)VALUES($values)";
             
-
+            
+            
             if(!$this->query($sql,$fields)->error()){
                 return true;
             }
